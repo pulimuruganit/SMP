@@ -4,7 +4,7 @@ export function apiBase(): string {
   const raw = process.env.NEXT_PUBLIC_API_URL?.trim();
   const base = raw && raw.length > 0 ? raw : DEFAULT_API_BASE;
   // Render users often set URLs with a trailing slash. If we don't normalize,
-  // requests like `${base}/api/...` can become `//api/...` which returns 404.
+  // requests like `${base}/api/...` can become `//api/...` which can return 404.
   return base.replace(/\/+$/, "");
 }
 
