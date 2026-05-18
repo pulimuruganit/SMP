@@ -1,0 +1,21 @@
+# dependencies / builds
+**/node_modules/
+**/.next/
+**/out/
+**/build/
+
+# env files (never commit)
+**/.env
+**/.env.*
+
+# local app data (tokens/emails)
+backend/app/data/
+
+# OS / misc
+.DS_Store
+Thumbs.db
+*.log
+
+# local artifacts
+plan.pdf
+frontend/.git-backup/

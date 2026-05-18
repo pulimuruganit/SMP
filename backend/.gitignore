@@ -1,0 +1,11 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyd
+
+# Local env (DO NOT COMMIT)
+.env
+.env.*
+
+# Local dev data (tokens/emails)
+app/data/

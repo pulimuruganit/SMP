@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: smp-backend
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PUBLIC_BACKEND_URL
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: OAUTH_STATE_SECRET
+        generateValue: true
+      - key: GMAIL_CLIENT_ID
+        sync: false
+      - key: GMAIL_CLIENT_SECRET
+        sync: false
+      - key: OUTLOOK_CLIENT_ID
+        sync: false
+      - key: OUTLOOK_CLIENT_SECRET
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+
+  - type: web
+    name: smp-frontend
+    runtime: node
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        sync: false

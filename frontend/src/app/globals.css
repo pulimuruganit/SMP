@@ -1,0 +1,152 @@
+﻿@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-geist-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --surface: #ffffff;
+  --surface-2: #f6f7fb;
+  --border: rgba(17, 24, 39, 0.10);
+  --muted: rgba(17, 24, 39, 0.05);
+  --muted-foreground: rgba(17, 24, 39, 0.70);
+  --ring: rgba(59, 130, 246, 0.4);
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+:root[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --surface: #0f172a;
+  --surface-2: #0b1220;
+  --border: rgba(148, 163, 184, 0.18);
+  --muted: rgba(148, 163, 184, 0.08);
+  --muted-foreground: rgba(226, 232, 240, 0.70);
+  --ring: rgba(99, 102, 241, 0.55);
+  --primary: #6366f1;
+  --primary-foreground: #0b1220;
+  --success: #22c55e;
+  --warning: #fbbf24;
+  --danger: #fb7185;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --surface: #0f172a;
+    --surface-2: #0b1220;
+    --border: rgba(148, 163, 184, 0.18);
+    --muted: rgba(148, 163, 184, 0.08);
+    --muted-foreground: rgba(226, 232, 240, 0.70);
+    --ring: rgba(99, 102, 241, 0.55);
+    --primary: #6366f1;
+    --primary-foreground: #0b1220;
+    --success: #22c55e;
+    --warning: #fbbf24;
+    --danger: #fb7185;
+  }
+}
+
+[data-view="clarity"] {
+  --background: #f7f8fc;
+  --foreground: #0b1220;
+  --surface: #ffffff;
+  --surface-2: #f3f5fb;
+  --border: rgba(2, 6, 23, 0.10);
+  --muted: rgba(2, 6, 23, 0.05);
+  --muted-foreground: rgba(2, 6, 23, 0.70);
+  --ring: rgba(79, 70, 229, 0.35);
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+}
+
+[data-view="command"] {
+  --background: #050814;
+  --foreground: #e7eefc;
+  --surface: #0b1222;
+  --surface-2: #0a0f1f;
+  --border: rgba(148, 163, 184, 0.18);
+  --muted: rgba(148, 163, 184, 0.10);
+  --muted-foreground: rgba(226, 232, 240, 0.72);
+  --ring: rgba(34, 211, 238, 0.35);
+  --primary: #22d3ee;
+  --primary-foreground: #071018;
+}
+
+[data-view="smart"] {
+  --background: #f8fafc;
+  --foreground: #0b1220;
+  --surface: #ffffff;
+  --surface-2: #f3f4f6;
+  --border: rgba(2, 6, 23, 0.10);
+  --muted: rgba(2, 6, 23, 0.05);
+  --muted-foreground: rgba(2, 6, 23, 0.70);
+  --ring: rgba(59, 130, 246, 0.35);
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+}
+
+:root[data-theme="dark"] [data-view="clarity"] {
+  --background: #050814;
+  --foreground: #e7eefc;
+  --surface: #0b1222;
+  --surface-2: #0a0f1f;
+  --border: rgba(148, 163, 184, 0.18);
+  --muted: rgba(148, 163, 184, 0.10);
+  --muted-foreground: rgba(226, 232, 240, 0.72);
+  --ring: rgba(99, 102, 241, 0.55);
+  --primary: #6366f1;
+  --primary-foreground: #071018;
+}
+
+:root[data-theme="dark"] [data-view="smart"] {
+  --background: #050814;
+  --foreground: #e7eefc;
+  --surface: #0b1222;
+  --surface-2: #0a0f1f;
+  --border: rgba(148, 163, 184, 0.18);
+  --muted: rgba(148, 163, 184, 0.10);
+  --muted-foreground: rgba(226, 232, 240, 0.72);
+  --ring: rgba(59, 130, 246, 0.4);
+  --primary: #3b82f6;
+  --primary-foreground: #071018;
+}
+
+:root[data-theme="light"] [data-view="command"] {
+  --background: #f7f8fc;
+  --foreground: #0b1220;
+  --surface: #ffffff;
+  --surface-2: #f3f5fb;
+  --border: rgba(2, 6, 23, 0.10);
+  --muted: rgba(2, 6, 23, 0.05);
+  --muted-foreground: rgba(2, 6, 23, 0.70);
+  --ring: rgba(34, 211, 238, 0.35);
+  --primary: #22d3ee;
+  --primary-foreground: #071018;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+* {
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
