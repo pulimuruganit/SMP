@@ -3,6 +3,7 @@
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 import os
 
 from .routers import assistant, dashboard, integrations, payments
@@ -48,3 +49,8 @@ app.include_router(payments.router, prefix="/api")
 @app.get("/health")
 def health() -> dict[str, str]:
   return {"status": "ok"}
+
+
+@app.get("/", include_in_schema=False)
+def root():
+  return RedirectResponse(url="/docs")
